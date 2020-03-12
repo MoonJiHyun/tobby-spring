@@ -20,8 +20,7 @@ import javax.sql.DataSource;
 import java.sql.SQLException;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = "/com/example/domain/applicationContext.xml")
-@DirtiesContext
+@ContextConfiguration(locations = "/com/example/domain/test-applicationContext.xml")
 public class UserDaoTest {
     @Autowired
     private UserDao dao;
@@ -32,8 +31,6 @@ public class UserDaoTest {
 
     @Before
     public void setUp() {
-        DataSource dataSource = new SingleConnectionDataSource("jdbc:mysql://localhost/testdb", "root", "", true);
-        dao.setDataSource(dataSource);
         this.user1 = new User("gyumee", "박성철", "springno1");
         this.user2 = new User("leegw700", "이길원", "springno2");
         this.user3 = new User("bumjin", "박범진", "springno3");
